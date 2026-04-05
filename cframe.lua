@@ -20,7 +20,7 @@ apply()
 
 selfPlayer.CharacterAdded:Connect(apply)
 
-function Module:Teleport(Position, Reverse, Delay)
+function Module:Teleport(Position, Stand, Reverse, Delay)
     local posType = typeof(Position)
     if posType == "CFrame" then
         local Root = Character:WaitForChild("HumanoidRootPart")
@@ -30,7 +30,9 @@ function Module:Teleport(Position, Reverse, Delay)
 
         local lastPos = Root.CFrame
 
-        Humanoid.PlatformStand = true
+        if stand then
+            Humanoid.PlatformStand = true
+        end
         Humanoid.Sit = true
         Root.CFrame = Position
 
@@ -49,7 +51,9 @@ function Module:Teleport(Position, Reverse, Delay)
 
         local lastPos = Character.PrimaryPart.Position
 
-        Humanoid.PlatformStand = true
+        if stand then
+            Humanoid.PlatformStand = true
+        end
         Humanoid.Sit = true
         Character:MoveTo(Position)
 
