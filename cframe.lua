@@ -30,7 +30,7 @@ function Module:Teleport(Position, Stand, Reverse, Delay)
 
         local lastPos = Root.CFrame
 
-        if stand then
+        if stand == true then
             Humanoid.PlatformStand = true
         end
         Humanoid.Sit = true
@@ -41,7 +41,7 @@ function Module:Teleport(Position, Stand, Reverse, Delay)
                 Root.CFrame = lastPos
             end
 
-            Humanoid.PlatformStand = true
+            Humanoid.PlatformStand = false
             Humanoid.Sit = true
         end)
     elseif posType == "Vector3" then
@@ -51,7 +51,7 @@ function Module:Teleport(Position, Stand, Reverse, Delay)
 
         local lastPos = Character.PrimaryPart.Position
 
-        if stand then
+        if stand == true then
             Humanoid.PlatformStand = true
         end
         Humanoid.Sit = true
@@ -62,7 +62,7 @@ function Module:Teleport(Position, Stand, Reverse, Delay)
                 Character:MoveTo(lastPos)
             end
 
-            Humanoid.PlatformStand = true
+            Humanoid.PlatformStand = false
             Humanoid.Sit = true
         end)
     end
